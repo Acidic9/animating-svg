@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="src/assets/styles.scss" />
+</head>
+
+<body>
+	<div id="app">
+
+		<div id="morphing">
+			<img src="https://dogshome.com/wp-content/uploads/2015/09/Norton.jpg" />
+			<svg width="600" height="600" viewBox="0 0 600 600">
+				<g fill="white" fill-rule="evenodd">
+					<!-- <rect width="600" height="600" style="fill:none;stroke-width:3;stroke:rgb(0,0,0)" /> -->
+					<path
+						d="M0,0 L600,0 L600,600 L0,600 L0,0 M100,300 C100,300,300,0,500,300 C500,300,300,600,100,300"
+						style="stroke: transparent; stroke-width: 0"
+					>
+				</g>
+			</svg>
+		</div>
+
+		<!-- <svg id="svg" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M100,100 L500,100 L500,500 L100,500 L100,100"
+				style="stroke: #FF0000; stroke-width: 3; fill: none"
+			>
+
+			</path>
+		</svg> -->
+		<!-- <svg id="svg" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+			<path d="M 100 100 L 500 100 L 500 500 L 100 500 L 100 100" style="stroke: #FF0000; stroke-width: 3; fill: none">
+				
+			<animate repeatCount="1" attributeName="d" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1" values="M100,100 L500,100 L500,500 L100,500 L100,100;M200,200 L400,200 L400,400 L200,400 L200,200" to="M200,200 L400,200 L400,400 L200,400 L200,200" dur="1000ms"></animate></path>
+		</svg> -->
+	</div>
+
+	<script src="src/main.js"></script>
+</body>
+
+</html>
