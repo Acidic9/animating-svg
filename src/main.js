@@ -1,18 +1,25 @@
 import anime from 'animejs'
-import Random from './prng'
+import { Noise } from 'noisejs'
 import map from './utils/map'
+
+// window.noise = new Noise(Math.random())
+
+// for (let i = 0; i < 100; ++i) {
+// 	console.log(window.noise.perlin2(i / 100, 0))
+// }
+
 
 const ds = [
 	// { value: 'M0,0 L600,0 L600,600 L0,600 L0,0 M100,300 C100,300,300,0,500,300 C500,300,300,600,100,300' }
 ]
 
-const random1 = new Random(new Date())
-const random2 = new Random(new Date() + 1000)
+const noise1 = new Noise(Math.random())
+const noise2 = new Noise(Math.random())
 for (let i = 0; i < 100; ++i) {
-	const randomY1 = map(random1.nextFloat(), 0, 1, 0, 300)
-	const randomY2 = map(random1.nextFloat(), 0, 1, 300, 600)
+	const noiseY1 = map(noise1.perlin2(i / 10, i / 10), -1, 1, 0, 300)
+	const noiseY2 = map(noise2.perlin2(i / 10, i / 10), -1, 1, 300, 600)
 	ds.push({
-		value: `M0,0 L600,0 L600,600 L0,600 L0,0 M100,300 C100,300,300,${randomY1},500,300 C500,300,300,${randomY2},100,300`
+		value: `M0,0 L600,0 L600,600 L0,600 L0,0 M100,300 C100,300,300,${noiseY1},500,300 C500,300,300,${noiseY2},100,300`
 	})
 }
 
@@ -34,7 +41,7 @@ var morphing = anime({
 	// 		value: '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369'
 	// 	}
 	// ],
-	easing: 'easeInOutQuad',
+	easing: 'linear',
 	duration: ds.length * 800,
 	direction: 'alternate',
 	// delay: function(el, i, l) { return i * 100; },
@@ -42,3 +49,4 @@ var morphing = anime({
 })
 
 console.log(morphing)
+
